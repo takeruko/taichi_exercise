@@ -1,0 +1,155 @@
+{
+    "postures": [
+        {
+            "id": 0,
+            "movie": "/media/video/0.mp4",
+            "title": "十字手",
+            "pinyin": "Shízìshǒu"
+        },
+        {
+            "id": 1,
+            "movie": "/media/video/1.mp4",
+            "title": "起势",
+            "pinyin": "Qǐshì"
+        },
+        {
+            "id": 2,
+            "movie": "/media/video/2.mp4",
+            "title": "野马分鬃",
+            "pinyin": "Yémǎ fēnzōng"
+        },
+        {
+            "id": 3,
+            "movie": "/media/video/3.mp4",
+            "title": "白鹤亮翅",
+            "pinyin": "Báihè lìangchì"
+        },
+        {
+            "id": 4,
+            "movie": "/media/video/4.mp4",
+            "title": "搂膝拗步",
+            "pinyin": "Lōuxī àobù"
+        },
+        {
+            "id": 5,
+            "movie": "/media/video/5.mp4",
+            "title": "手挥琵琶",
+            "pinyin": "Shǒuhūi pípā"
+        },
+        {
+            "id": 6,
+            "movie": "/media/video/6.mp4",
+            "title": "倒卷肱",
+            "pinyin": "Dàojuǎngōng"
+        },
+        {
+            "id": 7,
+            "movie": "/media/video/7.mp4",
+            "title": "左揽雀尾",
+            "pinyin": "Zuǒ lǎnquèwěi"
+        },
+        {
+            "id": 8,
+            "movie": "/media/video/8.mp4",
+            "title": "右揽雀尾",
+            "pinyin": "Yòu lǎnquèwěi"
+        },
+        {
+            "id": 9,
+            "movie": "/media/video/9.mp4",
+            "title": "单鞭",
+            "pinyin": "Dānbiān"
+        },
+        {
+            "id": 10,
+            "movie": "/media/video/10.mp4",
+            "title": "云手",
+            "pinyin": "Yúnshǒu"
+        },
+        {
+            "id": 11,
+            "movie": "/media/video/11.mp4",
+            "title": "单鞭",
+            "pinyin": "Dānbiān"
+        },
+        {
+            "id": 12,
+            "movie": "/media/video/12.mp4",
+            "title": "高探马",
+            "pinyin": "Gāotànmǎ"
+        },
+        {
+            "id": 13,
+            "movie": "/media/video/13.mp4",
+            "title": "右蹬脚",
+            "pinyin": "Yòu dēngjiǎo"
+        },
+        {
+            "id": 14,
+            "movie": "/media/video/14.mp4",
+            "title": "双峰贯耳",
+            "pinyin": "Shuāngfēng guàn'ěr"
+        },
+        {
+            "id": 15,
+            "movie": "/media/video/15.mp4",
+            "title": "转身左蹬脚",
+            "pinyin": "Zhuǎnshēn zuǒ dēngjiǎo"
+        },
+        {
+            "id": 16,
+            "movie": "/media/video/16.mp4",
+            "title": "左下势独立",
+            "pinyin": "Zuǒ xiàshì dúlì"
+        },
+        {
+            "id": 17,
+            "movie": "/media/video/17.mp4",
+            "title": "右下势独立",
+            "pinyin": "Yòu xiàshì dúlì"
+        },
+        {
+            "id": 18,
+            "movie": "/media/video/18.mp4",
+            "title": "左右穿梭",
+            "pinyin": "Zuǒyòu chuānsuō"
+        },
+        {
+            "id": 19,
+            "movie": "/media/video/19.mp4",
+            "title": "海底针",
+            "pinyin": "Hǎidǐzhēn"
+        },
+        {
+            "id": 20,
+            "movie": "/media/video/20.mp4",
+            "title": "闪通臂",
+            "pinyin": "Shǎntōngbì"
+        },
+        {
+            "id": 21,
+            "movie": "/media/video/21.mp4",
+            "title": "转身搬拦捶",
+            "pinyin": "Zhuǎnshēn bānlánchuí"
+        },
+        {
+            "id": 22,
+            "movie": "/media/video/22.mp4",
+            "title": "如封似闭",
+            "pinyin": "Rúfēng shìbì"
+        },
+        {
+            "id": 23,
+            "movie": "/media/video/23.mp4",
+            "title": "十字手",
+            "pinyin": "Shízìshǒu"
+        },
+        {
+            "id": 24,
+            "movie": "/media/video/24.mp4",
+            "title": "收势",
+            "pinyin": "Shōushì"
+        }
+    ],
+    "video_curtain": "/media/image/video_curtain.png"
+}
