@@ -4,13 +4,13 @@ var path = require('path');
 
 module.exports = {
     mode: 'development',
-    entry: "./src/js/client.js",
+    entry: "./docs/js/client.js",
     output: {
-        path: `${__dirname}/src`,
+        path: `${__dirname}/docs`,
         filename: "client.min.js"
     },
     devServer: {
-        static: "src",
+        static: "docs",
         open: true
     },
     module: {
