@@ -13,7 +13,7 @@ const getPosture = () => {
 
 const TaichiApp = () => {
   const [posture, setPosture] = useState(getPosture());
-  const [show_name, setShowName] = useState(true);
+  const [show_name, setShowName] = useState(false);
   const videoElement = useRef(null);
 
   const setNextPosture = () => {
