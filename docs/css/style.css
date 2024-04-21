@@ -1,5 +1,6 @@
 video {
     width: 100%;
+    display: none;
 }
 
 #show-qrcode {
@@ -44,6 +45,9 @@ video {
     box-shadow: 0px 0px 20px -6px rgba(0,0,0,0.6);
     z-index: 90;
     opacity: 0;
+}
+#qrcode-description {
+    text-align: center;
 }
 
 /* クリックで表示 */
