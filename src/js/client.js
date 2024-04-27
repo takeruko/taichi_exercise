@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { createRoot } from 'react-dom/client';
-import Contents from "../media/contents.json";
+import Contents from "./contents.json";
 
 const getRandomInt = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
