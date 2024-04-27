@@ -4,7 +4,7 @@ var path = require('path');
 
 module.exports = {
     mode: 'development',
-    entry: "./docs/js/client.js",
+    entry: "./src/js/client.js",
     output: {
         path: `${__dirname}/docs`,
         filename: "client.min.js"
