@@ -7,20 +7,50 @@ const getRandomInt = (min, max) => {
 };
 
 const getPosture = () => {
-  var idx = getRandomInt(0, Contents.postures.length - 1);
+  const idx = getRandomInt(0, Contents.postures.length - 1);
   return Contents.postures[idx];
 };
 
+const getNewPosturesList = (order) => {
+  // Get [0, 1, 2, 3,..., Contents.postures.length - 1]
+  let indexes = Array.from({length: Contents.postures.length}, (value, index) => 0 + index);
+  
+  if (order === 'shuffle') {
+    // Shuffle the indexes.
+    indexes = indexes.sort((a, b) => 0.5 - Math.random());
+  }
+
+  return indexes.map((i) => Contents.postures[i]);
+};
+
 const TaichiApp = () => {
-  const [posture, setPosture] = useState(getPosture());
   const [show_name, setShowName] = useState(false);
+  const [order, setOrder] = useState('shuffle');
+  const [prevOrder, setPrevOrder] = useState(order);
+  const [postures, setPostures] = useState([]);
+  const [posture, setPosture] = useState(getPosture());
+  const [selectedOption, setSelectedOption] = useState('shuffle');
   const videoElement = useRef(null);
   const videoCurtain = useRef(null);
+
+  const getNextPosture = () => {
+    let cur_postures;
+    if (postures.length === 0 || prevOrder !== order) {
+      cur_postures = getNewPosturesList(order);
+    }
+    else {
+      cur_postures = postures;
+    }
+    const next_posture = cur_postures.shift();
+    setPostures(cur_postures);
+    return next_posture;
+  };
 
   const setNextPosture = () => {
     videoCurtain.current.style.display = 'inline';
     videoElement.current.style.display = 'none';
-    setPosture(getPosture());
+    setPosture(getNextPosture());
+    setPrevOrder(order);
     videoElement.current.load();
   };
 
@@ -30,13 +60,18 @@ const TaichiApp = () => {
     videoElement.current.play();
   };
 
+  const onSelectOption = (e) => {
+    setSelectedOption(e.target.value);
+    setOrder(e.target.value);
+  }
+
   let posture_number = posture.id;
   let posture_title = show_name ? ': ' + posture.title + ' (' + posture.pinyin + ')' : '';
   let video_url = posture.movie;
   let video_curtain = Contents.video_curtain;
   return (
-        <div class='container-xl'>
-            <h4 class='p-3'>第{posture_number}式 {posture_title}</h4>
+        <div className='container-xl'>
+            <h4 className='p-3'>第{posture_number}式 {posture_title}</h4>
             <div>
               <img ref={videoCurtain} width="100%" src={video_curtain} onClick={playVideo} />
               <video ref={videoElement} controls playsInline preload="auto">
@@ -44,11 +79,24 @@ const TaichiApp = () => {
               </video>
             </div>
             
-            <button type="button" class="btn btn-success m-2" onClick={setNextPosture}>次の技へ</button>
-            <div class="form-check form-switch m-2">
-                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked={show_name} onChange={(e) => setShowName(e.target.checked)} />
-                <label class="form-check-label" htmlFor="flexSwitchCheckChecked">技名を表示</label>
-            </div>            
+            <button type="button" className="btn btn-success m-3" onClick={setNextPosture}>次の技へ</button>
+            <div className="form-check form-switch m-3">
+                <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked={show_name} onChange={(e) => setShowName(e.target.checked)} />
+                <label className="form-check-label" htmlFor="flexSwitchCheckChecked">技名を表示</label>
+            </div>
+            <div className="container m-3">
+              <div className="form-check form-check-inline">
+                <span>技の順序:</span>
+              </div>
+              <div className="form-check form-check-inline">
+                  <input className="form-check-input" type="radio" name="postures_order" id="postures_order_shuffle" value="shuffle" onChange={onSelectOption} checked={selectedOption === 'shuffle'} />
+                  <label className="form-check-label" htmlFor="postures_order_shuffle">シャッフル</label>
+              </div>
+              <div className="form-check form-check-inline">
+                  <input className="form-check-input" type="radio" name="postures_order" id="postures_order_asc" value="asc" onChange={onSelectOption} checked={selectedOption === 'asc'} />
+                  <label className="form-check-label" htmlFor="postures_order_asc">0から順番に</label>
+              </div>
+            </div>
         </div>
   );
 };
