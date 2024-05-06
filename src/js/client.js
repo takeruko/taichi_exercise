@@ -26,10 +26,10 @@ const getNewPosturesList = (order) => {
 const TaichiApp = () => {
   const [show_name, setShowName] = useState(false);
   const [order, setOrder] = useState('shuffle');
+  const [playbackRate, setPlaybackRate] = useState('1.0');
   const [prevOrder, setPrevOrder] = useState(order);
   const [postures, setPostures] = useState([]);
   const [posture, setPosture] = useState(getPosture());
-  const [selectedOption, setSelectedOption] = useState('shuffle');
   const videoElement = useRef(null);
   const videoCurtain = useRef(null);
 
@@ -60,9 +60,13 @@ const TaichiApp = () => {
     videoElement.current.play();
   };
 
-  const onSelectOption = (e) => {
-    setSelectedOption(e.target.value);
+  const onSelectOrder = (e) => {
     setOrder(e.target.value);
+  }
+
+  const onSelectPlaybackRate = (e) => {
+    setPlaybackRate(e.target.value);
+    videoElement.current.playbackRate = e.target.value;
   }
 
   let posture_number = posture.id;
@@ -81,20 +85,33 @@ const TaichiApp = () => {
             
             <button type="button" className="btn btn-success m-3" onClick={setNextPosture}>次の技へ</button>
             <div className="form-check form-switch m-3">
-                <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked={show_name} onChange={(e) => setShowName(e.target.checked)} />
                 <label className="form-check-label" htmlFor="flexSwitchCheckChecked">技名を表示</label>
+                <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked={show_name} onChange={(e) => setShowName(e.target.checked)} />
             </div>
             <div className="container m-3">
               <div className="form-check form-check-inline">
                 <span>技の順序:</span>
               </div>
               <div className="form-check form-check-inline">
-                  <input className="form-check-input" type="radio" name="postures_order" id="postures_order_shuffle" value="shuffle" onChange={onSelectOption} checked={selectedOption === 'shuffle'} />
+                  <input className="form-check-input" type="radio" name="postures_order" id="postures_order_shuffle" value="shuffle" onChange={onSelectOrder} checked={order === 'shuffle'} />
                   <label className="form-check-label" htmlFor="postures_order_shuffle">シャッフル</label>
               </div>
               <div className="form-check form-check-inline">
-                  <input className="form-check-input" type="radio" name="postures_order" id="postures_order_asc" value="asc" onChange={onSelectOption} checked={selectedOption === 'asc'} />
+                  <input className="form-check-input" type="radio" name="postures_order" id="postures_order_asc" value="asc" onChange={onSelectOrder} checked={order === 'asc'} />
                   <label className="form-check-label" htmlFor="postures_order_asc">0から順番に</label>
+              </div>
+            </div>
+            <div className="container m-3">
+              <div className="form-check form-check-inline">
+                <span>再生速度:</span>
+              </div>
+              <div className="form-check form-check-inline">
+                  <input className="form-check-input" type="radio" name="playback_rate" id="playback_rate_1" value="1.0" onChange={onSelectPlaybackRate} checked={playbackRate === '1.0'} />
+                  <label className="form-check-label" htmlFor="postures_order_shuffle">通常</label>
+              </div>
+              <div className="form-check form-check-inline">
+                  <input className="form-check-input" type="radio" name="playback_rate" id="playback_rate_2" value="2.0" onChange={onSelectPlaybackRate} checked={playbackRate === '2.0'} />
+                  <label className="form-check-label" htmlFor="postures_order_asc">倍速</label>
               </div>
             </div>
         </div>
