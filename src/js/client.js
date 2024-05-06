@@ -57,6 +57,7 @@ const TaichiApp = () => {
   const playVideo = () => {
     videoCurtain.current.style.display = 'none';
     videoElement.current.style.display = 'block';
+    videoElement.current.playbackRate = playbackRate;
     videoElement.current.play();
   };
 
