@@ -108,11 +108,11 @@ const TaichiApp = () => {
               </div>
               <div className="form-check form-check-inline">
                   <input className="form-check-input" type="radio" name="playback_rate" id="playback_rate_1" value="1.0" onChange={onSelectPlaybackRate} checked={playbackRate === '1.0'} />
-                  <label className="form-check-label" htmlFor="postures_order_shuffle">通常</label>
+                  <label className="form-check-label" htmlFor="playback_rate_1">通常</label>
               </div>
               <div className="form-check form-check-inline">
                   <input className="form-check-input" type="radio" name="playback_rate" id="playback_rate_2" value="2.0" onChange={onSelectPlaybackRate} checked={playbackRate === '2.0'} />
-                  <label className="form-check-label" htmlFor="postures_order_asc">倍速</label>
+                  <label className="form-check-label" htmlFor="playback_rate_2">倍速</label>
               </div>
             </div>
         </div>
